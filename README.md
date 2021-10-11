@@ -1,6 +1,8 @@
 # KratosDockerForDebugging
 
-[![License][license-image]][license] [![CI](https://github.com/loumalouomega/KratosDockerForDebugging/actions/workflows/ci.yml/badge.svg)](https://github.com/loumalouomega/KratosDockerForDebugging/actions/workflows/ci.yml) [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/repository/docker/loumalouomega/kratos4debug/general)
+[![License][license-image]][license] [![CI](https://github.com/loumalouomega/KratosDockerForDebugging/actions/workflows/ci.yml/badge.svg)](https://github.com/loumalouomega/KratosDockerForDebugging/actions/workflows/ci.yml)
+
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/repository/docker/loumalouomega/kratos4debug/general)
 
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license]: https://github.com/loumalouomega/KratosDockerForDebugging/blob/main/LICENSE
@@ -28,7 +30,7 @@ docker build -f ./docker/Dockerfile -t KratosTest .
 docker build -f ./docker/Dockerfile_with_VSCODE -t KratosTestVSCode .
 ~~~
 
-## Download current image from
+## Download current image from Dockerhub
 
 ### Without VS Code server
 
