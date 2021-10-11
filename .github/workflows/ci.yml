@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     paths:
-    - 'src/**'
+    - 'Dockerfile'
     - '.github/**'
 
   schedule:
@@ -19,12 +19,8 @@ jobs:
     - name: Build
       shell: bash
       run: |
-        mkdir build
-        cp scripts/configure.sh build
-        cd build
-        sh configure.sh
-    - name: Test
-      shell: bash
-      run: |
-        cd build
-        ctest
+        docker login -u="$DOCKERHUB_USER" -p="$DOCKERHUB_PASSWORD"
+        docker build -f ./Dockerfile -t kratos_test .
+        docker container prune
+        docker images
+        docker push
