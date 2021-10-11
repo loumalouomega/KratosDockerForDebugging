@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    paths:
+    - 'src/**'
+    - '.github/**'
+
+  schedule:
+    - cron:  '0 1 * * *'
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      shell: bash
+      run: |
+        mkdir build
+        cp scripts/configure.sh build
+        cd build
+        sh configure.sh
+    - name: Test
+      shell: bash
+      run: |
+        cd build
+        ctest
