@@ -17,14 +17,14 @@ Uses VS Code server so the debugging is easier
 ### Compile without VS Code server
 
 ~~~sh
-docker build -f ./Dockerfile -t KratosTest .
+docker build -f ./docker/Dockerfile -t KratosTest .
 
 ~~~
 
 ### Compile with VS Code server
 
 ~~~sh
-docker build -f ./Dockerfile_with_VSCODE -t KratosTestVSCode .
+docker build -f ./docker/Dockerfile_with_VSCODE -t KratosTestVSCode .
 ~~~
 
 ## Download current image from
