@@ -32,6 +32,12 @@ RUN apt-get -y update && apt-get -y upgrade -y && apt-get -y install --no-instal
 RUN apt-get -y clean
 RUN rm -rf /var/lib/apt/lists/*
 
+# Installing code server
+ENV DEBIAN_FRONTEND=noninteractive
+RUN curl -fsSL https://code-server.dev/install.sh | sh
+RUN apt-get -y clean
+RUN rm -rf /var/lib/apt/lists/*
+
 # Creation of a "non-root" user
 ENV USER "Kratos"
 RUN useradd --create-home ${USER}
@@ -68,3 +74,6 @@ RUN sh configure.sh
 RUN echo "export LD_LIBRARY_PATH=:/usr/lib/x86_64-linux-gnu:/home/Kratos/src/Kratos/bin/Release/lib/:/builds/Kratos/Kratos/bin/Release/lib/:" >> ~/.bashrc
 RUN echo "export PYTHONPATH=$PYTHONPATH:/home/Kratos/src/Kratos/bin/Release/:" >> ~/.bashrc
 RUN echo "alias python=\"python3\"" >> ~/.bashrc
+
+# Launch code server
+CMD ["code-server","--auth=none"]
