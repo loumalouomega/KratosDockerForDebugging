@@ -9,9 +9,9 @@
 
 ![](docs/kratos.png)
 
-This is a docker file for generate a debugging VM.
+This is a docker file for generate a debugging VM. Uses VS Code server so the debugging is easier.
 
-Uses VS Code server so the debugging is easier
+![](docs/vscodeserver.png)
 
 # How to use
 
@@ -61,5 +61,3 @@ docker run -p 8080:8080 --network="host" loumalouomega/kratos4debug:KratosTestVS
 ## VS Code Server
 
 Once you have started the docker image with VS Code server you can acess to the instance going to [localhost:8080](http://127.0.0.1:8080).
-
-![](docs/vscodeserver.png)
