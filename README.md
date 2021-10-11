@@ -10,14 +10,47 @@ This is a docker file for generate a debugging VM.
 
 Uses VS Code server so the debugging is easier
 
-# Compile
+# How to use
+
+## Compile
+
+### Compile without VS Code server
 
 ~~~sh
-docker build -f ./Dockerfile -t kratos_test .
+docker build -f ./Dockerfile -t KratosTest .
+
 ~~~
 
-# Run
+### Compile with VS Code server
 
 ~~~sh
-docker run -p 8080:8080 --network="host" kratos_test
+docker build -f ./Dockerfile_with_VSCODE -t KratosTestVSCode .
+~~~
+
+## Download current image from
+
+### Without VS Code server
+
+~~~sh
+docker pull loumalouomega/kratos4debug:KratosTest
+~~~
+
+### With VS Code server
+
+~~~sh
+docker pull loumalouomega/kratos4debug:KratosTestVSCode
+~~~
+
+## Run
+
+### Without VS Code server
+
+~~~sh
+docker run -it loumalouomega/kratos4debug:KratosTest
+~~~
+
+### With VS Code server
+
+~~~sh
+docker run -p 8080:8080 --network="host" loumalouomega/kratos4debug:KratosTestVSCode
 ~~~
