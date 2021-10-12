@@ -1,0 +1,15 @@
+# Each instruction in this file generates a new layer that gets pushed to your local image cache
+
+# Lines preceeded by # are regarded as comments and ignored
+
+# The line below states we will base our new image on the Latest Official Ubuntu
+FROM loumalouomega/kratos4debug:KratosTest
+
+# Identify the maintainer of an image
+LABEL maintainer="vicente.mataix@polytechnique.edu"
+
+# Installing in the current user the python libraries
+RUN python3 -m pip install jupyterlab
+
+# Launch jupyterlab
+ENTRYPOINT [ "jupyter", "lab", "--port=8888", "--ip=0.0.0.0", "--no-browser","--allow-root","--NotebookApp.token=''"]
