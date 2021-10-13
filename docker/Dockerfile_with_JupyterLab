@@ -9,7 +9,9 @@ FROM loumalouomega/kratos4debug:KratosTest
 LABEL maintainer="vicente.mataix@polytechnique.edu"
 
 # Installing in the current user the python libraries
-RUN python3 -m pip install jupyterlab numpy matplotlib scipy
+ENV USER "Kratos"
+USER ${USER}
+RUN python3 -m pip install jupyterlab numpy matplotlib scipy --user
 
 # # Installing paraview
 # USER root
@@ -17,7 +19,6 @@ RUN python3 -m pip install jupyterlab numpy matplotlib scipy
 # RUN apt-get install paraview
 # RUN apt-get -y clean
 # RUN rm -rf /var/lib/apt/lists/*
-# ENV USER "Kratos"
 # USER ${USER}
 
 # Launch jupyterlab
