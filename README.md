@@ -18,20 +18,20 @@ This is a docker file for generate a debugging VM. Uses VS Code server nor Jupyt
 ### Compile without VS Code server nor JupyterLab
 
 ~~~sh
-docker build -f ./docker/Dockerfile -t KratosTest .
+docker build -f ./docker/Dockerfile -t kratostest .
 
 ~~~
 
 ### Compile with VS Code server
 
 ~~~sh
-docker build -f ./docker/Dockerfile_with_VSCODE -t KratosTestVSCode .
+docker build -f ./docker/Dockerfile_with_VSCODE -t kratostestvscode .
 ~~~
 
 ### Compile with JupyterLab
 
 ~~~sh
-docker build -f ./docker/Dockerfile_with_JupyterLab -t KratosTestJupyterLab .
+docker build -f ./docker/Dockerfile_with_JupyterLab -t kratostestjupyterlab .
 ~~~
 
 ## Download current image from Dockerhub
