@@ -9,7 +9,16 @@ FROM loumalouomega/kratos4debug:KratosTest
 LABEL maintainer="vicente.mataix@polytechnique.edu"
 
 # Installing in the current user the python libraries
-RUN python3 -m pip install jupyterlab
+RUN python3 -m pip install jupyterlab numpy matplotlib scipy
+
+# # Installing paraview
+# USER root
+# ENV DEBIAN_FRONTEND=noninteractive
+# RUN apt-get install paraview
+# RUN apt-get -y clean
+# RUN rm -rf /var/lib/apt/lists/*
+# ENV USER "Kratos"
+# USER ${USER}
 
 # Launch jupyterlab
 ENTRYPOINT [ "jupyter", "lab", "--port=8888", "--ip=0.0.0.0", "--no-browser","--allow-root","--NotebookApp.token=''"]
