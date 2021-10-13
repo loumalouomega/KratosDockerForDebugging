@@ -64,7 +64,11 @@ RUN echo "export CC=/usr/bin/clang\nexport CXX=/usr/bin/clang++\nexport KRATOS_B
 WORKDIR /home/${USER}/src/Kratos/build
 RUN sh configure.sh
 
-# Add to the bashrc the LD_LIBRARY_PATH
+# Add the PATHs
+RUN echo "export PATH=$PATH:/home/Kratos/.local/bin:" >> ~/.bashrc
+ENV PATH="${PATH}:/home/Kratos/.local/bin"
 RUN echo "export LD_LIBRARY_PATH=:/usr/lib/x86_64-linux-gnu:/home/Kratos/src/Kratos/bin/Release/lib/:/builds/Kratos/Kratos/bin/Release/lib/:" >> ~/.bashrc
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/lib/x86_64-linux-gnu:/home/Kratos/src/Kratos/bin/Release/lib/:/builds/Kratos/Kratos/bin/Release/lib/"
 RUN echo "export PYTHONPATH=$PYTHONPATH:/home/Kratos/src/Kratos/bin/Release/:" >> ~/.bashrc
+ENV PYTHONPATH="${PYTHONPATH}:/home/Kratos/src/Kratos/bin/Release/"
 RUN echo "alias python=\"python3\"" >> ~/.bashrc

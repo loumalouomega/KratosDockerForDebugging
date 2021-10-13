@@ -8,9 +8,11 @@ FROM loumalouomega/kratos4debug:KratosTest
 # Identify the maintainer of an image
 LABEL maintainer="vicente.mataix@polytechnique.edu"
 
-# Installing in the current user the python libraries
+# Define user
 ENV USER "Kratos"
 USER ${USER}
+
+# Installing in the current user the python libraries
 RUN python3 -m pip install jupyterlab numpy matplotlib scipy --user
 
 # # Installing paraview
