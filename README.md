@@ -11,6 +11,8 @@ This is a docker file for generate a debugging VM. Uses VS Code server nor Jupyt
 
 ![](docs/vscodeserver.png)
 
+![](docs/jupyter_notebook.png)
+
 # How to use
 
 ## Compile
